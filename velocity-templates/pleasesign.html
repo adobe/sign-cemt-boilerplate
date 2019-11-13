@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+    <head>
+        <title>
+          #if ($!subject != "null")
+            $!subject
+          #end
+        </title>
+        <style type="text/css">
+        <!--
+        body, table, div, td, p {
+            font: 12px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+            color: #515151;}
+
+        p {
+          margin: 0 0 1em 0;
+        }
+
+        a, a:link, a:visited, a:hover, a:active
+        {
+          color: #0057ae !important;
+          text-decoration: none !important;
+        }
+
+        .blue {
+          color: #0057ae;  !important
+        }
+
+        img {
+          border:0;
+        }
+
+        span.e_heading {
+          font-size:12px;
+          font-weight:bold;
+        }
+
+        a {
+            color: #0057ae  !important;
+            text-decoration: none  !important;
+            border: none  !important;
+         }
+
+        a:visited
+            {
+            color: #0057ae  !important;
+            }
+
+        a:link, a:hover
+            {
+            text-decoration: none  !important;
+            color: #0057ae  !important;
+            }
+
+        h1 {
+            font: 24px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+            font-weight: normal;
+            color: #333333;
+            padding-bottom: 20px;}
+
+        .navigate {
+            font: 10px  'Lucida Grande', Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            padding-top: 7px;
+            }
+
+        img.module
+        {
+          margin: 0 0 10px 0;
+        }
+
+
+        div.clear
+        {
+          clear: both;
+          line-height: 10px;
+          height: 0;
+        }
+
+        br.clear
+        {
+          clear: both;
+          line-height: 0;
+          height: 0;
+        }
+
+        div#main
+        {
+          position: relative;
+          line-height: 16px;
+          margin: 0px;
+          padding: 20px 0 20px 0;
+          width: 100%;
+        }
+
+        div#footer
+        {
+          margin-top: 20px;
+        }
+
+        div#footer, div#footer a:link, div#footer a:visited, div#footer a:hover, div#footer a:active
+        {
+          color: #12bbde;
+          text-decoration: none;
+        }
+        div#footer a:hover
+        {
+          text-decoration: underline;
+        }
+
+        div.promo
+        {
+          color: #ffffff;
+          background-color: #034866;
+          padding: 15px;
+          width:179px;
+          text-align:left;
+        }
+
+        hr
+        {
+          border: 0;
+          width: 100%;
+          color: #929090;
+          background-color: #929090;
+          height: 1px;
+          margin: 5px 0;
+        }
+
+        .error {color: red}
+
+        .frame
+        {
+            border: 1px solid #EEEEEE;
+            padding: 0px;
+        }
+
+        .previewMulti
+        {
+            padding: 0;
+            margin: 0;
+            background: url($!image_url_prefix/images/email-multiple.gif);
+            width: 280px;
+            height: 356px;
+            vertical-align: bottom;
+        }
+
+        .previewSingle
+        {
+            padding: 0;
+            margin: 0;
+            background: url($!image_url_prefix/images/email-single.gif);
+            width: 280px;
+            height: 336px;
+            vertical-align: bottom;
+        }
+
+        li
+        {
+        font-weight: normal;
+        margin-bottom: 5px;
+        }
+
+        ul
+        {
+        padding: 7px 0 7px 0;
+        list-style-type: disc;
+        }
+
+        ol
+        {
+        padding: 7px 0 7px 0;
+        list-style-type: decimal;
+        }
+
+        div.floaterLeft
+        {
+          float:left;
+        }
+        -->
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div style="padding: 10px 10px 0 10px; width: 625px; text-align: center;">
+                #***************** Email header starts *****************#
+                <table cellpadding="0" cellspacing="0" role="banner">
+                    <tr role="presentation">
+                        <td align="left" role="presentation">
+                            #* Use header image if provided. Otherwise, use logo and email-strip-gray.png *#
+#if ($!header_image != "null")
+                            <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt=""/>
+#else
+                            <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353" height="60" hspace="2" alt=""/>
+                            <br class="clear"/>
+                            <img src="$!image_url_prefix/images/email-stripe-gray.png" alt="Send. Sign. Done." width="605" height="32" border="0" title="Adobe Sign"/>
+#end
+
+                            #* Request blank.gif only if the tracking ID is defined and non-empty. *#
+#if ($!secure_tracking_id != "null")
+                            <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1" height="1" border="0" title=""/>
+#end
+                        </td>
+                    </tr>
+                </table>
+                #***************** Email header ends *****************#
+
+                <div class="clear">&nbsp;</div>
+
+                #***************** Email body starts *****************#
+                <div id="main" style="width: 605px; background-color: #fff;" role="main">
+                    <table cellpadding="0" cellspacing="0" width="605" role="presentation">
+                        <tr>
+                            <td>
+                                #* Document image. Different borders based on the number of pages *#
+                                <table border="0" cellpadding="0" cellspacing="0" style="float:left; margin-right:20px;" role="presentation">
+                                    <tr>
+                                        <td align="right" valign="bottom"><img src="$!image_url_prefix$!agreement_thumbnail_image_path" width="250" border="0" style="border: 1px solid #eee" alt=""/></td>
+    #if ($!agreement_pages == "1")
+                                        <td align="left" valign="bottom"><img src="$!image_url_prefix/images/email-single-page-stack-right.gif" width="31" height="326" border="0" alt=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" valign="top" colspan="2"><img src="$!image_url_prefix/images/email-single-page-stack-bottom.gif" width="280" height="11" border="0" alt=""/></td>
+    #else
+                                        <td align="left" valign="bottom"><img src="$!image_url_prefix/images/email-multipage-stack-right.gif" width="31" height="326" border="0" alt=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" valign="top" colspan="2"><img src="$!image_url_prefix/images/email-multipage-stack-bottom.gif" width="280" height="31" border="0" alt=""/></td>
+    #end
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="padding-left: 20px; text-align: left;" width="325" valign="top">
+
+#if ($!please_sign_user_can_sign == "false" && !$!participation_role.contains("DELEGATE"))
+                                #***************** Handling for the case when an email is sent to user who cannot sign *****************#
+                                #* Email does not contain the link to sign the document in this case *#
+                                <h1>$!originator_fullnameoremail Has Sent You <b>$!agreement_titlecasename</b></h1>
+                                <p>
+    #if ($!please_sign_agreement_message != "null")
+                                    $!originator_fullnameandcompanyoremail says:<br />
+                                    <q><i>$!please_sign_agreement_message</i></q>
+    #end
+                                </p>
+    #set( $rolesStrings = {"SIGNER" : "signer" , "APPROVER" : "approver", "FORM_FILLER" : "form filler", "ACCEPTOR" : "acceptor", "CERTIFIED_RECIPIENT" : "certified recipient"} )
+                                <p><b>Please do not forward this email</b>. Instead, <a href="$!please_sign_resend_link">click here to delegate to an authorized $rolesStrings.get($!participation_role)</a>.</p>
+                                <br/>
+                                After your designated party completes the agreement, it will be sent or forwarded to additional signers if required. Otherwise, all parties will receive a final PDF copy by email.
+#else
+                                #***************** Handling for all other variants *****************#
+    #if ($!is_delegate == "true")
+                                #***************** Case when participant is a delegatee *****************#
+                                #* Title says 'has forwarded' and a delegation message is included *#
+        #set( $rolesStrings = {"SIGNER" : "to sign" , "APPROVER" : "to approve", "FORM_FILLER" : "to fill", "ACCEPTOR" : "to accept", "CERTIFIED_RECIPIENT" : "to acknowledge the receipt", "DELEGATE_TO_SIGNER" : "to sign", "DELEGATE_TO_APPROVER" : "to approve", "DELEGATE_TO_FORM_FILLER" : "to fill", "DELEGATE_TO_ACCEPTOR" : "to accept", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "to acknowledge the receipt"} )
+                                    <h1>$!please_sign_delegator_fullnameoremail has forwarded <b>$!agreement_titlecasename</b> to you $rolesStrings.get($!participation_role)</h1>
+                                    <p>
+        #if ($!please_sign_delegation_message != "null")
+                                    $!please_sign_delegator_fullnameandcompanyoremail says:<br />
+                                    <q><i>$!please_sign_delegation_message</i></q>
+        #end
+                                    </p>
+        #if ($!please_sign_intendedsigner_fullnameandcompanyoremail != "null")
+                                    #* If intended signer is specified, include him or her in the message *#
+                                    <p>
+                                        <b>It was originally sent by $!originator_fullnameandcompanyoremail to $!please_sign_intendedsigner_fullnameandcompanyoremail.</b>
+                                    </p>
+        #end
+        #if ($!please_sign_intendedsigner_fullnameandcompanyoremail == "null" && $!originator_fullnameandcompanyoremail != $!please_sign_intendedsigner_fullnameandcompanyoremail)
+                                    #* Otherwise, include delegator if that's not same as originator *#
+                                    <p>
+                                        <b>It was originally sent by $!originator_fullnameandcompanyoremail to $!please_sign_delegator_fullnameandcompanyoremail.</b>
+                                    </p>
+        #end
+        #if ($!please_sign_is_written_signer == "true")
+                                    <p>
+                                        You will fill out information electronically, then download and print the agreement, sign it using a pen, and upload the signed document back to Adobe Sign.
+                                    </p>
+        #end
+                                    <p>
+                                        $!originator_fullnameandcompanyoremail originally wrote:<br />
+                                        <q><i>$!please_sign_agreement_message</i></q>
+                                    </p>
+    #else
+                                #***************** Case when participant is not a delegatee *****************#
+        #if ($!please_sign_is_written_signer == "true")
+                            <h1>
+                                $!originator_fullnameandcompanyoremail asked for your handwritten signature on $!agreement_titlecasename
+                            </h1>
+                            <p>
+                                You will fill out information electronically, then download and print the agreement, sign it using a pen, and upload the signed document back to Adobe Sign.
+                            </p>
+        #else
+            #set( $rolesStrings = {"SIGNER" : "to Sign" , "APPROVER" : "to Approve", "FORM_FILLER" : "to Fill", "ACCEPTOR" : "to Accept", "CERTIFIED_RECIPIENT" : "to acknowledge receipt", "DELEGATE_TO_SIGNER" : "to Delegate for Signature", "DELEGATE_TO_APPROVER" : "to Delegate for Approval", "DELEGATE_TO_FORM_FILLER" : "to Delegate for Filling", "DELEGATE_TO_ACCEPTOR" : "to Delegate for Acceptance", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "to Delegate Receipt Acknowledgement"} )
+                            <h1>$!originator_fullnameoremail Has Sent You <b>$!agreement_titlecasename</b> $rolesStrings.get($!participation_role)</h1>
+                            <p>
+        #end
+        #if ($!please_sign_agreement_message != "null")
+                                $!originator_fullnameandcompanyoremail says:<br />
+                                <q><i>$!please_sign_agreement_message</i></q>
+        #end
+                            </p>
+        #if ($!please_sign_agreement_private_message != "null")
+                        <p>
+                            Private message to you:<br />
+                            <i>$!please_sign_agreement_private_message</i>
+                        </p>
+        #end
+    #end
+
+                                #***************** Documents to be attached *****************#
+    #if ($!please_sign_attached_documents_size != "0")
+                                <p>As you prepare to sign this agreement, please note that the document asks for the following document(s) to be attached:</p>
+                                <ul style="padding: 0 0 0 15px">
+        #foreach( $!index in $!please_sign_attached_documents.keySet() )
+                                    <li>$!please_sign_attached_documents.get($!index)</li>
+        #end
+                                </ul>
+    #end
+
+                                #***************** Handling for auto-delegation failure *****************#
+    #if ($!please_sign_auto_delegation_failed_reason != "null")
+                                <p>
+                                    Warning: Autodelegation failed for $!please_sign_failed_auto_delegatee.
+                                    $!please_sign_auto_delegation_failed_reason
+                                </p>
+    #end
+
+                                #***************** Call to action *****************#
+    #set( $rolesStrings = {"SIGNER" : "to review and sign" , "APPROVER" : "to review and approve", "FORM_FILLER" : "to review and fill", "ACCEPTOR" : "to review and accept", "CERTIFIED_RECIPIENT" : "to view and acknowledge receipt of", "DELEGATE_TO_SIGNER" : "to review and delegate signing for", "DELEGATE_TO_APPROVER" : "to review and delegate approval for", "DELEGATE_TO_FORM_FILLER" : "to review and delegate filling for", "DELEGATE_TO_ACCEPTOR" : "to review and delegate acceptance for", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "to view and delegate receipt acknowledgement for"} )
+                                <p>
+                                    <a href="$!please_sign_esign_link"><span class="action">Click here</span> $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>.</a>
+                                </p>
+
+                                #***************** Recipient set message *****************#
+    #if ($!please_sign_sibling_nameoremails_size != "0" && $!please_sign_sibling_nameoremails_size != "1")
+        #set( $rolesStrings = {"SIGNER" : "to sign this document" , "APPROVER" : "to approve this document", "FORM_FILLER" : "to fill this document", "ACCEPTOR" : "to accept this document", "CERTIFIED_RECIPIENT" : "to acknowledge the receipt of this document", "DELEGATE_TO_SIGNER" : "to delegate this document for signature", "DELEGATE_TO_APPROVER" : "to delegate this document for approval", "DELEGATE_TO_FORM_FILLER" : "to delegate this document for filling", "DELEGATE_TO_ACCEPTOR" : "to delegate this document for acceptance", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "to delegate the acknowledgement of receipt of this document"} )
+                                <p>
+                                    You are one of a group of people out of which only one needs $rolesStrings.get($!participation_role). The group includes $!please_sign_sibling_nameoremails.
+                                </p>
+    #end
+
+                                #***************** Messaging for "After you sign" *****************#
+    #if ($!disable_aftersign == "false")
+                                <p>
+                                    #***************** When there are more signers to sign *****************#
+        #if ($!following_signers_set_size != "0")
+                                        #***************** Sequential workflow *****************#
+            #if ($!please_sign_agreement_sequential == "true")
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt of", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt of"} )
+                                    After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, the agreement will be sent to
+                                        #foreach ($!index in $!following_signers_set.keySet())
+                                            #set( $moreValue = $!following_signers_set.size() - 4 )
+                                            #* No traversal beyond 4 elements *#
+                                            #if ($!index == "4") and $moreValue more. #break #end
+                                            #* If on the last item in a list, insert element and break. *#
+                                            #if (($!following_signers_set.size() - 1) == $!index)
+                                                #if ($!index == "0")
+                                                    $!following_signers_set.get($!index).
+                                                #else
+                                                    and $!following_signers_set.get($!index).
+                                                #end
+                                                #break
+                                            #end
+                                            #* If on second last item, do not add "," after element *#
+                                            #if (($!following_signers_set.size() - 2) != $!index)
+                                                $!following_signers_set.get($!index),
+                                            #else
+                                                $!following_signers_set.get($!index)
+                                            #end
+                                        #end
+                                    #* when SEND_SIGNED_AND_FILED_EMAIL setting is true, add appropriate message *#
+                #if ($!all_get_signedandfiledemail == "true")
+                                        #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                    #if ($!all_get_attachments == "true")
+                                        Then, all parties will receive a final PDF copy by email.
+                    #else
+                                        Then, all parties will be notified via email.
+                    #end
+                #end
+            #else
+                                        #***************** Parallel workflow *****************#
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt"} )
+                                    #* when SEND_SIGNED_AND_FILED_EMAIL setting is true, add appropriate message *#
+                #if ($!all_get_signedandfiledemail == "true")
+                                        #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                    #if ($!all_get_attachments == "true")
+                                        After you $rolesStrings.get($!participation_role), and
+                                            #foreach ($!index in $!following_signers_set.keySet())
+                                                #set( $moreValue = $!following_signers_set.size() - 4 )
+                                                #* No traversal beyond 4 elements *#
+                                                #if ($!index == "4") and $moreValue more #break #end
+                                                #* If on the last item in a list, insert element and break. *#
+                                                #if (($!following_signers_set.size() - 1) == $!index)
+                                                    #if ($!index == "0")
+                                                        $!following_signers_set.get($!index)
+                                                    #else
+                                                        and $!following_signers_set.get($!index)
+                                                    #end
+                                                    #break
+                                                #end
+                                                #* If on second last item, do not add "," after element *#
+                                                #if (($!following_signers_set.size() - 2) != $!index)
+                                                    $!following_signers_set.get($!index),
+                                                #else
+                                                    $!following_signers_set.get($!index)
+                                                #end
+                                            #end complete <b>$!agreement_titlecasename</b>, all parties will receive a final PDF copy by email.
+                    #end
+                #end
+            #end
+        #else
+                                    #***************** No more signers to sign *****************#
+                                    #* when SEND_SIGNED_AND_FILED_EMAIL setting is true, add appropriate message *#
+            #if ($!all_get_signedandfiledemail == "true")
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt of", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt of"} )
+                                        #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                #if ($!all_get_attachments == "true")
+                                        After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, all parties will receive a final PDF copy by email.
+                #else
+                                        After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, all parties will be notified.
+                #end
+            #end
+        #end
+                                </p>
+    #end
+
+                                #***************** Message for delegate link *****************#
+    #if ($!please_sign_can_be_delegated == "true")
+        #set( $rolesStrings = {"SIGNER" : "for signature" , "APPROVER" : "for approval", "FORM_FILLER" : "for filling", "ACCEPTOR" : "for acceptance", "CERTIFIED_RECIPIENT" : "", "DELEGATE_TO_SIGNER" : "for delegation", "DELEGATE_TO_APPROVER" : "for delegation", "DELEGATE_TO_FORM_FILLER" : "for delegation", "DELEGATE_TO_ACCEPTOR" : "for delegation", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "for delegation"} )
+                                <p>If you need to delegate this document to an authorized party $rolesStrings.get($!participation_role), <b>please do not forward this email</b>. Instead, <a href="$!please_sign_resend_link">click here to delegate</a>.</p>
+    #end
+
+                                #***************** Message for expiration date *****************#
+    #if ($!please_sign_expiration_date != "null")
+                                <p>This document is available until $!please_sign_expiration_date and will expire thereafter.</p>
+    #end
+#end
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                #***************** Email body ends *****************#
+
+                #***************** Email footer starts *****************#
+                <table width="605" role="contentinfo">
+                    <tr role="presentation">
+                        <td align="left" role="presentation">
+    #if ($!settings_email_allow_individual_signature == "true")
+                            $!settings_email_user_signature
+    #end
+                            <br/>
+                            $!settings_email_account_signature
+
+    #if ($!footer_image != "null")
+                            <br class="clear"/>
+                            <img src="$!image_url_prefix/cobrand_logo/$!footer_image" style="margin-top:10px" alt=""/>
+    #end
+
+    #if ($!hide_safe_list == "false")
+                            <p style="font-size:80%">
+                                To ensure that you continue receiving our emails, please add echosign@echosign.com to your address book or safe list.
+                            </p>
+    #end
+
+                        </td>
+                    </tr>
+                </table>
+                #***************** Email footer ends *****************#
+
+            </div>
+        </center>
+        <div id="client-email-id" style="display:none">$!tracking_id</div>
+#if ($!debug_dump != "null")
+        <strong>Adobe Sign Debug Information:</strong><br/>
+        <div style="white-space: pre-line">
+        $!debug_dump
+        </div>
+#end
+    </body>
+</html>
