@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+
+#if($!allow_agreement_thumbs)
+<style type="text/css">
+<!--
+
+body,
+table,
+div,
+td,
+p {
+    font: 12px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+    color: #515151;
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #09b2ed !important;
+    text-decoration: none !important;
+}
+
+.blue {
+    color: #09b2ed;
+    !important
+}
+
+img {
+    border: 0;
+}
+
+span.e_heading {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+a {
+    color: #09b2ed !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+h1 {
+    font: 24px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+    font-weight: normal;
+    color: #333333;
+    padding-bottom: 20px;
+}
+
+.navigate {
+    font: 10px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    padding-top: 7px;
+}
+
+img.module {
+    margin: 0 0 10px 0;
+}
+
+
+div.clear {
+    clear: both;
+    line-height: 10px;
+    height: 0;
+}
+
+br.clear {
+    clear: both;
+    line-height: 0;
+    height: 0;
+}
+
+div#main {
+    position: relative;
+    line-height: 16px;
+    margin: 0px;
+    padding: 20px 0 20px 0;
+    width: 100%;
+}
+
+div#footer {
+    margin-top: 20px;
+}
+
+div#footer,
+div#footer a:link,
+div#footer a:visited,
+div#footer a:hover,
+div#footer a:active {
+    color: #12bbde;
+    text-decoration: none;
+}
+
+div#footer a:hover {
+    text-decoration: underline;
+}
+
+div.promo {
+    color: #ffffff;
+    background-color: #034866;
+    padding: 15px;
+    width: 179px;
+    text-align: left;
+}
+
+hr {
+    border: 0;
+    width: 100%;
+    color: #929090;
+    background-color: #929090;
+    height: 1px;
+    margin: 5px 0;
+}
+
+.error {
+    color: red
+}
+
+.frame {
+    border: 1px solid #EEEEEE;
+    padding: 0px;
+}
+
+.previewMulti {
+    padding: 0;
+    margin: 0;
+    background: url($!image_url_prefix/images/email-multiple.gif);
+    width: 280px;
+    height: 356px;
+    vertical-align: bottom;
+}
+
+.previewSingle {
+    padding: 0;
+    margin: 0;
+    background: url($!image_url_prefix/images/email-single.gif);
+    width: 280px;
+    height: 336px;
+    vertical-align: bottom;
+}
+
+li {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+ul {
+    padding: 7px 0 7px 0;
+    list-style-type: disc;
+}
+
+ol {
+    padding: 7px 0 7px 0;
+    list-style-type: decimal;
+}
+
+div.floaterLeft {
+    float: left;
+}
+
+-->
+</style>
+#else
+<style type="text/css">
+<!--
+
+body,
+table,
+div,
+td,
+p {
+    font: 12px 'Lucida Grande', Tahoma, Verdana, Arial, Verdana, sans-serif;
+    color: #515151;
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #09b2ed !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.blue {
+    color: #09b2ed !important;
+}
+
+img {
+    border: 0;
+}
+
+span.e_heading {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+a {
+    color: #09b2ed !important;
+    text-decoration: none !important;
+    border: none;
+    font-weight: bold;
+}
+
+h1 {
+    font: 22px 'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: #333333;
+    padding-bottom: 5px;
+}
+
+div#headerArea {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: url($!image_url_prefix/images/email-stripe-background.gif);
+    /*nowrap: nowrap;*/
+}
+
+div#main {
+    position: relative;
+    line-height: 16px;
+    margin: 0px;
+    padding: 20px 0 20px 0;
+    width: 100%;
+}
+
+
+div.clear {
+    clear: both;
+    line-height: 10px;
+    height: 0;
+}
+
+br.clear {
+    clear: both;
+    line-height: 0;
+    height: 0;
+}
+
+span.action {
+    color: blue;
+}
+
+div.promo {
+    color: #fff;
+    background-color: #034866;
+    padding: 15px;
+    width: 179px;
+    text-align: left;
+}
+
+hr {
+    border: 0;
+    width: 100%;
+    color: #929090;
+    background-color: #929090;
+    height: 1px;
+    margin: 5px 0;
+}
+
+div.summary-block {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+div.summary-block div.left {
+    float: left;
+    width: 49%;
+}
+
+div.summary-block div.right {
+    float: right;
+    width: 49%;
+}
+
+div.summary-block h3 {
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+div.summary-block table th {
+    width: 225px;
+    text-align: left;
+}
+
+div.summary-block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+div.summary-block ul li {
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: 14px
+}
+
+-->
+</style>
+#end
+</head>
+
+<body>
+<center>
+
+  #if ($!allow_agreement_thumbs)
+    #* For layout that includes a thumbnail *#
+    <div style="padding: 10px 10px 0 10px; width: 625px; text-align: center;">
+      <table cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="left">
+
+            #if ($!header_image != "null")
+              <img src="$!{image_url_prefix}/cobrand_logo/$!{header_image}" alt=""/>
+            #else
+              <img src="$!{image_url_prefix}/cobrand_logo/$!{settings_logo_filename}" width="353" height="60" hspace="2" alt=""/>
+              <br class="clear"/>
+              <img src="$!{image_url_prefix}/images/email-stripe-gray.png" alt="Adobe Sign" width="605" height="32" border="0" title="Adobe Sign"/>
+            #end
+
+            ## Request blank.gif only if the tracking ID is defined and non-empty. Part of fix for FogBugz 24707.
+            #if ($!secure_tracking_id && $!secure_tracking_id != "")
+              <img src="$!{image_url_prefix}/track/$!{secure_tracking_id}/blank.gif" alt="" width="1" height="1" border="0" title=""/>
+            #end
+          </td>
+        </tr>
+      </table>
+
+      <div class="clear">&nbsp;</div>
+
+      ## Cannot put text-align: left; on this div because outlook on windows will align the whole div left instead
+      <div id="main" style="width: 605px; background-color: #fff;">
+        <table cellpadding="0" cellspacing="0" width="605">
+          <tr>
+            <td>
+              <table border="0" cellpadding="0" cellspacing="0" style="float:left; margin-right:20px;">
+                <tr>
+                  <td align="right" valign="bottom"><img src="$!{image_url_prefix}$!{agreement_thumbnail_image_path}" width="250" border="0" style="border: 1px solid #eee" alt=""/></td>
+                  #if ($!agreement_pages && $!agreement_pages == 1)
+                    <td align="left" valign="bottom"><img src="$!{image_url_prefix}/images/email-single-page-stack-right.gif" width="31" height="326" border="0" alt=""/></td>
+                    </tr>
+                    <tr>
+                    <td align="right" valign="top" colspan="2"><img src="$!{image_url_prefix}/images/email-single-page-stack-bottom.gif" width="280" height="11" border="0" alt=""/></td>
+                  #else
+                    <td align="left" valign="bottom"><img src="$!{image_url_prefix}/images/email-multipage-stack-right.gif" width="31" height="326" border="0" alt=""/></td>
+                    </tr>
+                    <tr>
+                    <td align="right" valign="top" colspan="2"><img src="$!{image_url_prefix}/images/email-multipage-stack-bottom.gif" width="280" height="31" border="0" alt=""/></td>
+                  #end
+                </tr>
+              </table>
+              #if (!$!agreement_is_esign)
+                <p class="navigate" style="text-align: left;">
+                   #if ($!pages_received != $!pages_expected)
+                    <b>Number of Pages: $!pages_received Received, $!pages_expected Expected</b>
+                  #else
+                    #if ($!agreement_pages)
+                      #if ($!agreement_pages == 1)
+                        <b>1 page</b>
+                      #else
+                        <b>$!agreement_pages pages</b>
+                      #end
+                    #end
+                  #end
+                </p>
+              #end
+            </td>
+
+          <td style="padding-left: 20px; text-align: left;" width="325" valign="top">
+    #else
+      #* For layout that doesn't include a thumbnail *#
+      <div style="padding: 10px 20px 0 20px; width: 625px; text-align: left;">
+
+        #if ($!header_image != "null")
+          <img src="$!{image_url_prefix}/cobrand_logo/$!{header_image}" alt=""/>
+        #else
+          <img src="$!{image_url_prefix}/cobrand_logo/$!{settings_logo_filename}" width="353" height="60" hspace="2" alt=""/>
+          <br class="clear"/>
+          <img src="$!{image_url_prefix}/images/email-stripe-gray.png" alt="Adobe Sign" width="605" height="32" border="0" title="Adobe Sign"/>
+         #end
+
+         ## Request blank.gif only if the tracking ID is defined and non-empty. Part of fix for FogBugz 24707.
+         #if ($!secure_tracking_id && $!secure_tracking_id != "")
+           <img src="$!{image_url_prefix}/track/$!{secure_tracking_id}/blank.gif" alt="" width="1" height="1" border="0" title=""/>
+         #end
+
+        <div class="clear">&nbsp;</div>
+
+        <div id="main2" style="width: 605px; background-color: #fff;">
+          <table cellpadding="0" cellspacing="0" width="605">
+            <tr>
+              <td>
+    #* ends allow_agreement_thumbs if/else *#
+    #end
+           <p>
+             <h1>
+               <b>$!agreement_titlecasename</b> Agreement Exchange Canceled
+             </h1>
+           </p>
+
+
+           <p>
+             <span class="e_heading">
+               #if ($!refusal_category != "null" || $!comment != "null")
+                 Reason:
+               #end
+
+               <i>
+
+                 #if ($!refusal_category == "sender_cancel")
+                 	Canceled by sender.
+                 #elseif ($!refusal_category == "prefer_fax")
+                 	Prefer to fax in my signature.
+                 #elseif ($!refusal_category == "refuse")
+                 	#if ($!canceler_participation_role == "APPROVER")
+                      Will not approve this document.
+                    #elseif ($!canceler_participation_role == "SIGNER")
+                      Will not sign this document.
+                    #elseif ($!canceler_participation_role == "DELEGATE_TO_SIGNER" || $!canceler_participation_role == "DELEGATE_TO_ACCEPTOR" || $!canceler_participation_role == "DELEGATE_TO_CERTIFIED_RECIPIENT" || $!canceler_participation_role == "DELEGATE_TO_FORM_FILLER" || $!canceler_participation_role == "DELEGATE_TO_APPROVER")
+                      Will not delegate this document.
+                    #elseif ($!canceler_participation_role == "ACCEPTOR")
+                      Will not accept this document.
+                    #elseif ($!canceler_participation_role == "CERTIFIED_RECIPIENT")
+                      Will not acknowledge receipt of this document.
+                    #elseif ($!canceler_participation_role == "FORM_FILLER")
+                      Will not fill this form.
+                    #end
+                 #end
+                 #if ($!comment != "null")
+                   $!comment
+                 #end
+               </i>
+             </span>
+           </p>
+
+            <p>
+              <span class="e_heading">Document Title:</span> $!agreement_titlecasename <br/>
+              <span class="e_heading">Status:</span> Canceled<br/>
+              <span class="e_heading">Parties:</span><br/>
+              #foreach ($parties_name in $!agreement_data_parties_names)
+                $parties_name
+                <br/>
+              #end
+            </p>
+
+        <p>
+              #if ($!cancel_type == "self")
+                At your request, Adobe Sign has terminated the agreement exchange for <b>$!agreement_titlecasename</b>.
+          		#if ($!any_exposed && $!notify)
+                  All parties to the transaction have been notified accordingly, and the document has been deleted from all parties' Adobe Sign accounts.
+                #elseif($!any_exposed)
+                  The document has been deleted from all parties' Adobe Sign accounts.
+                #end
+              #elseif ($!cancel_type == "signer_to_signers")
+                $!canceler_full_name_and_company_or_email has terminated the agreement exchange for <b>$!agreement_titlecasename.</b> All parties to the transaction have been notified accordingly, and the document has been deleted from all parties' Adobe Sign accounts.
+              #elseif ($!cancel_type == "originator_to_signers")
+                I have canceled the agreement exchange for <b>$!agreement_titlecasename</b> even though you have already completed and returned it.  This transaction has been terminated by Adobe Sign and the document has been removed from our Adobe Sign accounts.  No further steps are required on your part.
+              #elseif ($!cancel_type == "originator_to_unsigned_exposed")
+                I have canceled the agreement exchange for <b>$!agreement_titlecasename.</b> This transaction has been terminated by Adobe Sign and the document has been removed from our Adobe Sign accounts.
+              #elseif ($!cancel_type == "signer_to_originator")
+                <span class="e_heading">
+                  $!canceler_full_name_and_company_or_email
+                </span>
+                #if ($!participation_role == "APPROVER")
+                  received your request to approve <b>$!agreement_titlecasename</b>, but was unable to comply.  This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "SIGNER")
+                  received your request to sign <b>$!agreement_titlecasename</b>, but was unable to comply.  This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "DELEGATE_TO_SIGNER")
+                  received your request to delegate <b>$!agreement_titlecasename</b> for signature, but was unable to comply.  This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "DELEGATE_TO_APPROVER")
+                  received your request to delegate <b>$!agreement_titlecasename</b> for approval, but was unable to comply.  This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "ACCEPTOR")
+                  received your request to accept <b>$!agreement_titlecasename</b>, but was unable to comply. This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "CERTIFIED_RECIPIENT")
+                  received your request to acknowledge receipt of <b>$!agreement_titlecasename</b>, but was unable to comply. This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "FORM_FILLER")
+                  received your request to fill <b>$!agreement_titlecasename</b>, but was unable to comply. This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "DELEGATE_TO_ACCEPTOR")
+                  received your request to delegate <b>$!agreement_titlecasename</b> for acceptance, but was unable to comply. This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "DELEGATE_TO_CERTIFIED_RECIPIENT")
+                  received your request to delegate <b>$!agreement_titlecasename</b> for acknowledgement, but was unable to comply. This agreement exchange was terminated at their request.
+                #elseif ($!participation_role == "DELEGATE_TO_FORM_FILLER")
+                  received your request to delegate <b>$!agreement_titlecasename</b> for filling, but was unable to comply. This agreement exchange was terminated at their request.
+          		#end
+          	#end
+            </p>
+          </td>
+        </tr>
+      </table>
+
+#if($!allow_agreement_thumbs)
+  </div>
+#end
+
+<table width="605">
+  <tr>
+    <td align="left">
+
+      ## macro emailSignature
+      #if ($!settings_email_allow_individual_signature)
+        $!settings_email_user_signature
+      #end
+      <br/>
+      $!settings_email_account_signature
+
+      ## macro emailFooterImage
+      #if ($!footer_image != "null")
+        <br class="clear"/>
+        <img src="$!{image_url_prefix}/cobrand_logo/$!{footer_image}" style="margin-top:10px" alt=""/>
+      #end
+
+      ## snippet safelist
+      #if (!$hide_safe_list)
+        <p style="font-size:80%">
+          To ensure that you continue receiving our emails, please add echosign@echosign.com to your address book or safe list.
+        </p>
+      #end
+
+    </td>
+  </tr>
+</table>
+
+#if(!$!allow_agreement_thumbs)
+  </div>
+#end
+
+#* Ignore the 2 lint errors below. The linter isn't recognizing the div's within the velocity if/else statement starting at line 325 *#
+#* and therefore thinks they're mismatched.  We could duplicate a lot of code to rid ourselves of these but best to simply ignore the linter *#
+</div>
+
+</center>
+
+#if ($!debug_dump && $!debug_dump != "null")
+  <strong>Adobe Sign Debug Information:</strong><br/>
+  <div style="white-space: pre-line">
+    $!debug_dump
+  </div>
+#end
+
+</body>
+</html>
