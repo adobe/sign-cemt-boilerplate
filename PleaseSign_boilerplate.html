@@ -1,0 +1,288 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+  <title>
+    #if ($!subject != "null")
+    $!subject
+    #end
+  </title>
+  <style type="text/css">
+    body,
+    table,
+    div,
+    td,
+    p {
+      font: 12px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+      color: #515151;
+    }
+
+    p {
+      margin: 0 0 1em 0;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: #0057ae !important;
+      text-decoration: none !important;
+    }
+
+    .blue {
+      color: #0057ae;
+       !important
+    }
+
+    img {
+      border: 0;
+    }
+
+    span.e_heading {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    a {
+      color: #0057ae !important;
+      text-decoration: none !important;
+      border: none !important;
+    }
+
+    a:visited {
+      color: #0057ae !important;
+    }
+
+    a:link,
+    a:hover {
+      text-decoration: none !important;
+      color: #0057ae !important;
+    }
+
+    h1 {
+      font: 24px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Verdana, sans-serif;
+      font-weight: normal;
+      color: #333333;
+      padding-bottom: 20px;
+    }
+
+    .navigate {
+      font: 10px 'Lucida Grande', Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      padding-top: 7px;
+    }
+
+    img.module {
+      margin: 0 0 10px 0;
+    }
+
+
+    div.clear {
+      clear: both;
+      line-height: 10px;
+      height: 0;
+    }
+
+    br.clear {
+      clear: both;
+      line-height: 0;
+      height: 0;
+    }
+
+    div#main {
+      position: relative;
+      line-height: 16px;
+      margin: 0px;
+      padding: 20px 0 20px 0;
+      width: 100%;
+    }
+
+    div#footer {
+      margin-top: 20px;
+    }
+
+    div#footer,
+    div#footer a:link,
+    div#footer a:visited,
+    div#footer a:hover,
+    div#footer a:active {
+      color: #12bbde;
+      text-decoration: none;
+    }
+
+    div#footer a:hover {
+      text-decoration: underline;
+    }
+
+    div.promo {
+      color: #ffffff;
+      background-color: #034866;
+      padding: 15px;
+      width: 179px;
+      text-align: left;
+    }
+
+    hr {
+      border: 0;
+      width: 100%;
+      color: #929090;
+      background-color: #929090;
+      height: 1px;
+      margin: 5px 0;
+    }
+
+    .error {
+      color: red
+    }
+
+    .frame {
+      border: 1px solid #EEEEEE;
+      padding: 0px;
+    }
+
+    .previewMulti {
+      padding: 0;
+      margin: 0;
+      background: url($!image_url_prefix/images/email-multiple.gif);
+      width: 280px;
+      height: 356px;
+      vertical-align: bottom;
+    }
+
+    .previewSingle {
+      padding: 0;
+      margin: 0;
+      background: url($!image_url_prefix/images/email-single.gif);
+      width: 280px;
+      height: 336px;
+      vertical-align: bottom;
+    }
+
+    li {
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      padding: 7px 0 7px 0;
+      list-style-type: disc;
+    }
+
+    ol {
+      padding: 7px 0 7px 0;
+      list-style-type: decimal;
+    }
+
+    div.floaterLeft {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <div style="padding: 10px 10px 0 10px; width: 625px; text-align: center;">
+      <!-- HEADER  -->
+      <table cellpadding="0" cellspacing="0" role="banner">
+        <tr role="presentation">
+          <td align="left" role="presentation">
+            <table cell padding="0" cellspacing="0">
+              <tr>
+                <td width="353" height="60">
+                  YOUR LOGO WILL BE HERE
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- SPACER  -->
+      <div class="clear">&nbsp;</div>
+
+      <!-- BODY  -->
+      <div id="main" style="width: 605px; background-color: #fff;" role="main">
+        <table cellpadding="0" cellspacing="0" width="605" role="presentation">
+          <tr>
+            <td>
+              <table border="0" cellpadding="0" cellspacing="0" style="float:left; margin-right:20px;"
+                role="presentation">
+                <tr>
+                  <td align="right" valign="bottom"><img src="" width="250" border="0" style="border: 1px solid #eee"
+                      alt="" />
+                    // DOCUMENT IMAGE PREVIEW //
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td style="padding-left: 20px; text-align: left;" width="325" valign="top">
+
+              <!-- AGREEMENT TITLE  -->
+              <h1>//SENDER// Has Sent You <b>//AGREEMENT NAME//</b>//ACTION//</h1>
+
+              <!-- AGREEMENT MESSAGE -->
+              <p>
+                //SENDER// says:<br />
+                <q><i>//AGREEMENT MESSAGE//</i></q>
+              </p>
+
+              <!-- PRIVATE MESSAGE  -->
+              <p>
+                Private message to you:<br />
+                <i>//PRIVATE MESSAGE//</i>
+              </p>
+
+              <!-- CALL TO ACTION  -->
+              <p>
+                <a href=""><span class="action">Click here</span> //ACTION// <b>//AGREEMENT NAME//</b>.</a>
+              </p>
+
+              <!-- RECIPIENT SET MESSAGE  -->
+              <p>
+                You are one of a group of people out of which only one needs //ACTION//. The group includes //SIBLING
+                EMAILS//.
+              </p>
+
+              <!-- MESSAGING FOR AFTER YOU SIGN  -->
+              <p>
+                After you //ACTION// <b>//AGREEMENT NAME//</b>, all parties will receive a final PDF copy by email.
+              </p>
+
+              <!-- MESSAGE FOR DELEGATE LINK  -->
+              <p>If you need to delegate this document to an authorized party, <b>please do not forward this email</b>.
+                Instead, <a href="">click here to delegate</a>.</p>
+
+              <!-- MESSAGE FOR EXPIRATION DATE  -->
+              <p>This document is available until //EXPIRATION DATE// and will expire thereafter.</p>
+
+
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- FOOTER  -->
+      <table width="605" role="contentinfo">
+        <tr role="presentation">
+          <td align="left" role="presentation">
+            <p>
+              //CONFIDENTIALITY NOTICE//
+            </p>
+
+
+            <p style="font-size:80%">
+              To ensure that you continue receiving our emails, please add echosign@echosign.com to your address book or
+              safe list.
+            </p>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+  </center>
+</body>
+
+</html>
