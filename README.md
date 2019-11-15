@@ -20,7 +20,7 @@ Browsers: Google Chrome, Mozilla Firefox, Internet Edge
 
 Clone this git repository onto your local machine
 
-Update the templates with either the verbiage you want or revamp it completely with your custom HTML and CSS to match your company's brand with your own familiar branding, color scheme, images, and text. You can also format the look and feel for these templates however you like.
+Update the templates in the boilerplates directory with either the verbiage you want or revamp it completely with your custom HTML and CSS to match your company's brand with your own familiar branding, color scheme, images, and text. You can also format the look and feel for these templates however you like.
 
 Any text surrounded by // TEXT // are Adobe Sign variables that cannot be reworded. You have the option to remove these from the template itself or move them to a different position, but the text itself cannot be changed. If further clarification is needed, please reach out to your ACS PS contact.
 
@@ -32,6 +32,10 @@ Any text surrounded by // TEXT // are Adobe Sign variables that cannot be reword
 ## Completion
 
 When completed, send your HTML files to your contact on the ACS PS team. They will then update the Adobe Sign specific variables and test to ensure that the templates are running properly within the system and then push it live to a test group in your account. You will then test that the templates look and function correctly and after confirming, the templates will be pushed live to the appropriate account/group based on the original SOW.
+
+## Disclaimer
+
+Disclaimer: We have included the raw templates in the velocity-templates directory, in case you or your team want to use these for reference during the rebranding process. These raw templates are only available for testing within the Adobe Sign interface, and can only be accessed by your PS contact.
 
 ## Built With
 
