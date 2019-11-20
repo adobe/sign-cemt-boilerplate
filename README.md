@@ -64,7 +64,7 @@ When completed, send your HTML files to your contact on the ACS PS team. They wi
 ## Contributing
 
 Contributions are welcomed! Check out our
-[contribution guidelines](CONTRIBUTING.md) for information on how to get
+[contribution guidelines](../.github/CONTRIBUTING.md) for information on how to get
 involved.
 
 ## Licensing
