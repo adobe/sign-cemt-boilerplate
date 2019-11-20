@@ -23,8 +23,8 @@ To get started, just download the HTML files onto your local machine and use the
 
 ### Prerequisites
 
-Any IDE that can be used to read HTML and CSS
-Any internet browser
+- Any IDE that can be used to read HTML and CSS
+- Any internet browser
 
 ```
 IDE: Visual Studio Code, Atom, Sublime
