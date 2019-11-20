@@ -1,4 +1,4 @@
-# Project Title
+# CEMT boilerplates
 
 Boilerplate for custom email templates provided by Adobe Sign to get started. The templates pack includes PleaseSign, SignedAndFiled, Reminder, and Canceled.
 
