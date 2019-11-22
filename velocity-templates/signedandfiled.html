@@ -1,22 +1,11 @@
-template subject:
-#set( $rolesStrings = {"SIGNER" : "Signed and Filed" , "APPROVER" : "Approved", "FORM_FILLER" : "Filled", "ACCEPTOR" : "Accepted", "CERTIFIED_RECIPIENT" : "Delivered", "DELEGATE_TO_SIGNER": "Signed and Filed", "DELEGATE_TO_APPROVER": "Approved", "DELEGATE_TO_FORM_FILLER": "Filled", "DELEGATE_TO_ACCEPTOR": "Accepted", "DELEGATE_TO_CERTIFIED_RECIPIENT": "Delivered", "": ""} )
-$!unescaped_agreement_titlecasename has been $rolesStrings.get($!participation_role)
-#foreach ($!index in $!signed_and_filed_all_parties.keySet())#*
-    *##set( $moreValue = $!signed_and_filed_all_parties.size() - 4 )#*
-    *##if ($!index == "4") and $moreValue more! #break #end#*
-    *##if ($!index == "0") by #end#*
-    *##if (($!signed_and_filed_all_parties.size() - 1) == $!index)#*
-        *##if ($!index == "0") $!signed_and_filed_all_parties.get($!index)! #end#*
-        *##if ($!index != "0") and $!signed_and_filed_all_parties.get($!index)! #end#*
-        *##break#*
-    *##end#*
-    *##if (($!signed_and_filed_all_parties.size() - 2) != $!index)#*
-        *#$!signed_and_filed_all_parties.get($!index), #*
-    *##end#*
-    *##if (($!signed_and_filed_all_parties.size() - 2) == $!index)#*
-        *#$!signed_and_filed_all_parties.get($!index)#*
-    *##end#*
-*##end
+<!-- # Copyright 2019 Adobe
+# All Rights Reserved.
+
+# NOTICE: Adobe permits you to use, modify, and distribute this file in
+# accordance with the terms of the Adobe license agreement accompanying
+# it. If you have received this file from a source other than Adobe,
+# then your use, modification, or distribution of it requires the prior
+# written permission of Adobe.  -->
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
