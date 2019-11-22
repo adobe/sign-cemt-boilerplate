@@ -44,6 +44,10 @@ Any text surrounded by // TEXT // are Adobe Sign variables that cannot be reword
 // AGREEMENT NAME // 
 ```
 
+## Disclaimer
+
+Disclaimer: We have included the raw templates in the velocity-templates directory, in case you or your team want to use these for reference during the rebranding process. These raw templates are only available for testing within the Adobe Sign interface, and can only be tested by your PS contact. These are available for you or your team to update the verbiage for different participant roles and must be verified by your PS contact.
+
 ## Completion
 
 When completed, send your HTML files to your contact on the ACS PS team. They will then update the Adobe Sign specific variables and test to ensure that the templates are running properly within the system and then push it live to a test group in your account. You will then test that the templates look and function correctly and after confirming, the templates will be pushed live to the appropriate account/group based on the original SOW.
