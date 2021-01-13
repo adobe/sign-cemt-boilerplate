@@ -19,7 +19,7 @@ you are expected to uphold this code. Please report unacceptable behavior to
 
 ## Getting Started
 
-To get started, just download the HTML files onto your local machine and use them as a boilerplate for when you create custom templates to use with Adobe Sign. You'll be able to change the verbiage, update layout, or revamp the entire look and feel of the template based on your LFS tier. For further clarification, please refer to the Custom Email Templates guidelines which will be provided by your ACS PS contact, or the Adobe helpx page [here](https://helpx.adobe.com/sign/using/custom-email-templates.html).
+To get started, just download the HTML files onto your local machine and use them as a boilerplate for when you create custom templates to use with Adobe Sign. You'll be able to change the verbiage, update layout, or revamp the entire look and feel of the template. For further clarification, please refer to the Custom Email Templates guidelines which will be provided by your ACS PS contact, or the Adobe helpx page [here](https://helpx.adobe.com/sign/using/custom-email-templates.html).
 
 ### Prerequisites
 
