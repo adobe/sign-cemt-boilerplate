@@ -230,26 +230,26 @@
                     <td>
                       <p>
                         #if ($!cancel_type == "self")
-                        At your request, Adobe Sign has terminated the agreement exchange for
+                        At your request, Adobe Acrobat Sign has terminated the agreement exchange for
                         <b>$!agreement_titlecasename</b>.
                         #if ($!any_exposed && $!notify)
                         All parties to the transaction have been notified accordingly, and the document has been deleted
-                        from all parties' Adobe Sign accounts.
+                        from all parties' Adobe Acrobat Sign accounts.
                         #elseif($!any_exposed)
-                        The document has been deleted from all parties' Adobe Sign accounts.
+                        The document has been deleted from all parties' Adobe Acrobat Sign accounts.
                         #end
                         #elseif ($!cancel_type == "signer_to_signers")
                         $!canceler_full_name_and_company_or_email has terminated the agreement exchange for
                         <b>$!agreement_titlecasename.</b> All parties to the transaction have been notified accordingly,
-                        and the document has been deleted from all parties' Adobe Sign accounts.
+                        and the document has been deleted from all parties' Adobe Acrobat Sign accounts.
                         #elseif ($!cancel_type == "originator_to_signers")
                         I have canceled the agreement exchange for <b>$!agreement_titlecasename</b> even though you have
-                        already completed and returned it. This transaction has been terminated by Adobe Sign and the
-                        document has been removed from our Adobe Sign accounts. No further steps are required on your
+                        already completed and returned it. This transaction has been terminated by Adobe Acrobat Sign and the
+                        document has been removed from our Adobe Acrobat Sign accounts. No further steps are required on your
                         part.
                         #elseif ($!cancel_type == "originator_to_unsigned_exposed")
                         I have canceled the agreement exchange for <b>$!agreement_titlecasename.</b> This transaction
-                        has been terminated by Adobe Sign and the document has been removed from our Adobe Sign
+                        has been terminated by Adobe Acrobat Sign and the document has been removed from our Adobe Acrobat Sign
                         accounts.
                         #elseif ($!cancel_type == "signer_to_originator")
                         $!canceler_full_name_and_company_or_email
