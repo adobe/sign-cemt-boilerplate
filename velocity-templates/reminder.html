@@ -152,11 +152,39 @@
 
                 <p class="bodyHeading"
                   style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
-                  Reminder: $!originator_full_name requests your signature for <br /> <b>$!agreement_titlecasename</b>
+      #if ($!subtype == "reminder_signed")
+        Email Reminder re: <b>$!agreement_titlecasename</b>
+      #elseif ($!subtype == "reminder_next_to_esign")
+          #if ($!participation_role == "ACCEPTOR") Please accept <b>$!agreement_titlecasename</b>
+          #elseif ($!participation_role == "APPROVER") Please approve <b>$!agreement_titlecasename</b>
+          #elseif ($!participation_role == "CERTIFIED_RECIPIENT") Please acknowledge receipt of <b>$!agreement_titlecasename</b>
+          #elseif ($!participation_role == "FORM_FILLER") Please fill <b>$!agreement_titlecasename</b>
+          #elseif ($!participation_role == "SIGNER") Please sign <b>$!agreement_titlecasename</b>
+          #else Please delegate <b>$!agreement_titlecasename</b>
+          #end
+      #elseif ($!subtype == "reminder_next_to_sign")
+        Please sign <b>$!agreement_titlecasename</b>
+      #elseif ($!subtype == "reminder_not_next_to_esign")
+        Email Reminder re: <b>$!agreement_titlecasename</b>
+      #elseif ($!subtype == "reminder_not_next_to_sign")
+        Email Reminder re: <b>$!agreement_titlecasename</b>
+      #end
                 </p>
 
 
                 <center>
+
+        #if ($!subtype == "reminder_signed")
+        <p>$!originator_fullnameoremail has requested that this reminder be sent after you have already
+        #if ($!participation_role == "ACCEPTOR") accepted this document.
+        #elseif ($!participation_role == "APPROVER") approved this document.
+        #elseif ($!participation_role == "CERTIFIED_RECIPIENT") acknowledged receipt of this document.
+        #elseif ($!participation_role == "FORM_FILLER") filled this document.
+        #elseif ($!participation_role == "SIGNER") signed this document.
+        #else delegated this document.
+        #end
+        </p>
+            #elseif ($!subtype == "reminder_next_to_esign")
 
 
 
@@ -214,6 +242,15 @@
                     </a>
                   </div>
                   <!-- <![endif]-->
+
+     #elseif ($!subtype == "reminder_next_to_sign")
+      <p>
+        Please <b>print, sign and fax back</b> the attached <b>$!agreement_titlecasename</b>.  A cover sheet with my Adobe Acrobat Sign fax number <b>is included</b>.
+      </p>
+      <p>
+        After you sign $!agreement_titlecasename, everyone will automatically receive a notification by email.
+      </p>
+    #end
                 </center>
 
                 <hr class="separator" />
@@ -256,30 +293,101 @@
                   </tr>
                   <tr>
                     <td>
-                      <p>
-                        After you sign <b>$!agreement_titlecasename</b>, all parties will receive a final PDF copy by
-                        email.
-                      </p>
 
-                      #if ($!expiration_date_iso != "")
-                      <p>
-                        This document is available
-                        #if ($!participation_role == "ACCEPTOR") for acceptance
-                        #elseif ($!participation_role == "APPROVER") for approval
-                        #elseif ($!participation_role == "CERTIFIED_RECIPIENT") ## [empty]
-                        #elseif ($!participation_role == "FORM_FILLER") for filling
-                        #elseif ($!participation_role == "SIGNER") for signing
-                        #elseif ($!participation_role == "DELEGATE_TO_ACCEPTOR") for delegation for acceptance
-                        #elseif ($!participation_role == "DELEGATE_TO_APPROVER") for delegation for approval
-                        #elseif ($!participation_role == "DELEGATE_TO_CERTIFIED_RECIPIENT") for delegation for receipt
-                        acknowledgement
-                        #elseif ($!participation_role == "DELEGATE_TO_FORM_FILLER") for delegation for filling
-                        #elseif ($!participation_role == "DELEGATE_TO_SIGNER") for delegation for signature
-                        #end
-                        until $!date.format("MMMM d, yyyy", $!date.toDate("yyyy-MM-dd'T'HH:mm:ss",
-                        $!expiration_date_iso)) and will expire thereafter.
-                      </p>
-                      #end
+    #if ($!subtype != "reminder_signed")
+        <p>$!originator_fullnameoremail has requested that this reminder be sent.</p><br>
+    #end
+    
+
+    #if ($!reminder_frequency == "WEEKDAILY")
+      <p>This reminder will be re-sent every weekday.</p><br>
+    #end
+    #if ($!reminder_frequency == "DAILY")
+      <p>This reminder will be re-sent every day.</p><br>
+    #end
+    #if ($!reminder_frequency == "WEEKLY")
+      <p>This reminder will be re-sent every week.</p><br>
+    #end
+    #if ($!reminder_frequency == "DAILY_UNTIL_SIGNED")
+      <p>This reminder will be re-sent every day until completed.</p><br>
+    #end
+    #if ($!reminder_frequency == "WEEKLY_UNTIL_SIGNED")
+      <p>This reminder will be re-sent every week until completed.</p><br>
+    #end
+    #if ($!reminder_frequency != "ONCE")
+      <p><a href="$!stop_link">Click here</a> if you wish to stop receiving reminders about this agreement.</p>
+    #end
+    <br/>
+    <br/>
+    #if ($!subtype == "reminder_signed")
+      <br/>
+      <br/>
+        #if ($!document_retention_days != 0)
+          <p>
+              #if ($!demarket_emails)
+                <a href="$!agrlink"><b>Click here</b></a> to view this document online.
+              #else
+                <a href="$!agrlink"><b>Click here</b></a> to view this document online in your Adobe Acrobat Sign account.
+              #end
+              #if ($!document_retention_days != -1)
+                (Document will be available for $!document_retention_days days)
+              #end
+          </p>
+        #end
+    #elseif ($!subtype == "reminder_next_to_esign")
+        #if ($!expiration_date_iso != "")
+          <p>
+            This document is available
+              #if ($!participation_role == "ACCEPTOR") for acceptance
+              #elseif ($!participation_role == "APPROVER") for approval
+              #elseif ($!participation_role == "CERTIFIED_RECIPIENT")  ## [empty]
+              #elseif ($!participation_role == "FORM_FILLER") for filling
+              #elseif ($!participation_role == "SIGNER") for signing
+              #elseif ($!participation_role == "DELEGATE_TO_ACCEPTOR") for delegation for acceptance
+              #elseif ($!participation_role == "DELEGATE_TO_APPROVER") for delegation for approval
+              #elseif ($!participation_role == "DELEGATE_TO_CERTIFIED_RECIPIENT") for delegation for receipt acknowledgement
+              #elseif ($!participation_role == "DELEGATE_TO_FORM_FILLER") for delegation for filling
+              #elseif ($!participation_role == "DELEGATE_TO_SIGNER") for delegation for signature
+              #end
+            until $!date.format("MMMM d, yyyy", $!date.toDate("yyyy-MM-dd'T'HH:mm:ss", $!expiration_date_iso)) and will expire thereafter.
+          </p>
+        #end
+    #elseif ($!subtype == "reminder_next_to_sign")
+        #if ($!is_protected)
+            ## XXX: This block is present only in the "next to sign" legacy emails,
+            ## but looks like it might properly need to be in all of them.
+          <p style="font-size: 11px">
+            For additional security, the sender has set an open password for this document.
+            You will need to contact $!originator_full_name to get the password in order to view this attachment.
+            <br/>
+          </p>
+        #end
+        #if ($!expiration_date_iso != "")
+          <p>
+            This document is available
+              #if ($!participation_role == "ACCEPTOR") for acceptance
+              #elseif ($!participation_role == "APPROVER") for approval
+              #elseif ($!participation_role == "CERTIFIED_RECIPIENT")  ## [empty]
+              #elseif ($!participation_role == "FORM_FILLER") for filling
+              #elseif ($!participation_role == "SIGNER") for signing
+              #elseif ($!participation_role == "DELEGATE_TO_ACCEPTOR") for delegation for acceptance
+              #elseif ($!participation_role == "DELEGATE_TO_APPROVER") for delegation for approval
+              #elseif ($!participation_role == "DELEGATE_TO_CERTIFIED_RECIPIENT") for delegation for receipt acknowledgement
+              #elseif ($!participation_role == "DELEGATE_TO_FORM_FILLER") for delegation for filling
+              #elseif ($!participation_role == "DELEGATE_TO_SIGNER") for delegation for signature
+              #end
+            until $!date.format("MMMM d, yyyy", $!date.toDate("yyyy-MM-dd'T'HH:mm:ss", $!expiration_date_iso)) and will expire thereafter.
+          </p>
+        #end
+    #elseif ($!subtype == "reminder_not_next_to_esign")
+      <br/>
+      <br/>
+      <a href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
+    #elseif ($!subtype == "reminder_not_next_to_sign")
+      <br/>
+      <br/>
+      <a href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
+    #end
                     </td>
                   </tr>
                 </table>
@@ -300,7 +408,7 @@
       </tr>
       <tr>
         <td>
-          <table style="font-size: 12px; color: #4b4b4b"> 
+          <table style="font-size: 12px; color: #4b4b4b">
             <tr>
               <td>
                 <center>
@@ -326,7 +434,7 @@
                   To ensure that you continue receiving our emails, please add adobesign@adobesign.com to your address
                   book or safe list.
                 </p>
-                <p style="margin-bottom: 18px">&copy; 2022 Adobe. All rights reserved.</p>
+                <p style="margin-bottom: 18px">&copy; 2021 Adobe. All rights reserved.</p>
 
                 <img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
