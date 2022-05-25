@@ -1,170 +1,164 @@
-<!-- # Copyright 2022 Adobe
-# All Rights Reserved.
-
-# NOTICE: Adobe permits you to use, modify, and distribute this file in
-# accordance with the terms of the Adobe license agreement accompanying
-# it. If you have received this file from a source other than Adobe,
-# then your use, modification, or distribution of it requires the prior
-# written permission of Adobe.  -->
-
-
 <!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-  <title></title>
-  <style type="text/css">
-    body,
-    table,
-    div,
-    td,
-    p {
-      font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #2C2C2C;
-      font-weight: 300;
-    }
+	<title></title>
+	<style type="text/css">
+		body,
+		table,
+		div,
+		td,
+		p {
+			font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			color: #2C2C2C;
+			font-weight: 300;
+		}
 
-    p {
-      margin: 0;
-      padding: 0;
-    }
+		p {
+			margin: 0;
+			padding: 0;
+		}
 
-    a {
-      border: none;
-    }
+		a {
+			border: none;
+		}
 
-    a,
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-      color: #09b2ed;
-      text-decoration: none;
-      font-weight: bold;
-    }
+		a,
+		a:link,
+		a:visited,
+		a:hover,
+		a:active {
+			color: #09b2ed;
+			text-decoration: none;
+			font-weight: bold;
+		}
 
-    .separator {
-      margin: 0;
-      border: 1px solid #CACACA;
-    }
+		.separator {
+			margin: 0;
+			border: 1px solid #CACACA;
+		}
 
-    img {
-      border: 0;
-    }
+		img {
+			border: 0;
+		}
 
-    span.e_heading {
-      font-size: 12px;
-      font-weight: bold;
-    }
+		span.e_heading {
+			font-size: 12px;
+			font-weight: bold;
+		}
 
-    h1 {
-      font-size: 28px;
-      font-weight: 300;
-      color: #6E6E6E;
-      padding-bottom: 5px;
-    }
+		h1 {
+			font-size: 28px;
+			font-weight: 300;
+			color: #6E6E6E;
+			padding-bottom: 5px;
+		}
 
-    .bodyHeading {
-      margin: 0;
-      font-size: 22px;
-      color: #454545;
-      text-align: center;
-    }
+		.bodyHeading {
+			margin: 0;
+			font-size: 22px;
+			color: #454545;
+			text-align: center;
+		}
 
-    .footerContainer {
-      margin-top: 16px;
-      font-size: 12px;
-      color: #4b4b4b
-    }
+		.footerContainer {
+			margin-top: 16px;
+			font-size: 12px;
+			color: #4b4b4b
+		}
 
-    ul {
-      font-size: 17px;
-    }
+		ul {
+			font-size: 17px;
+		}
 
-    .footerContainer p {
-      margin-bottom: 1em;
-    }
-  </style>
+		.footerContainer p {
+			margin-bottom: 1em;
+		}
+	</style>
+
 </head>
 
 <body>
-  <center>
-    <table cellspacing="16" cellpadding="0" border="0"
-      style="max-width: 600px; background-color: #f0f0f0;border-collapse: separate">
-      <tr style="background-color: #ffffff">
-        <td>
-          <table style="background-color: #fff;width:100%; padding-bottom: 20px;" border="0" cellspacing="0"
-            cellpadding="0" align="center">
-            <tbody>
-              <tr>
-                <td valign="bottom">
-                  <table class="" border="0" cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <table border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td style="width:16px;">&nbsp;</td>
-                              <td>
-                                #* Use header image if provided. Otherwise, use logo *#
-                                #if ($!header_image != "null")
-                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
+	<center>
+		<table cellspacing="16" cellpadding="0" border="0"
+			style="max-width: 600px; background-color: #f0f0f0;border-collapse: separate">
+			<tr style="background-color: #ffffff">
+				<td>
+					<table style="background-color: #fff;width:100%; padding-bottom: 20px;" border="0" cellspacing="0"
+						cellpadding="0" align="center">
+						<tbody>
+							<tr>
+								<td valign="bottom">
+									<table class="" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+												<td>
+													<table border="0" cellpadding="0" cellspacing="0">
+														<tr>
+															<td style="width:16px;">&nbsp;</td>
+															<td>
+																#* Use header image if provided. Otherwise, use logo *#
+																#if ($!header_image != "null")
+																<img src="../$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
                                 #else
-                                <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
+																<img src="../$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
                                   height="60" hspace="2" alt="" />
                                 #end
 
+
+
                                 #* Request blank.gif only if the tracking ID is defined and non-empty. *#
                                 #if ($!secure_tracking_id != "null")
-                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
+																<img src="../$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
                                   height="1" border="0" title="" />
                                 #end
                               </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
 
-                <td style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px"
-                  width="39" align="right" valign="top">
-                  <img style="background-color:#ff0000;display:inline-block"
+								<td style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px"
+									width="39" align="right" valign="top">
+									<img style="background-color:#ff0000;display:inline-block"
                     src="https://corporate.na1.echosign.com/images/emailNextGen/email-adobe-tag-classic@2x.png"
                     border="0" alt="Adobe" width="39" height="64">
                 </td>
 
-                <td style="width:16px;">&nbsp;</td>
-              </tr>
-            </tbody>
-          </table>
+								<td style="width:16px;">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
 
-          <table id="main" cellpadding="20" cellspacing="0" style="width: 100%">
-            <tr>
-              <td>
-                <center>
-                  <img src="https://corporate.na1.echosign.com/images/emailNextGen/checkmarkCircle@2x.png"
+					<table id="main" cellpadding="20" cellspacing="0" style="width: 100%">
+						<tr>
+							<td>
+								<center>
+									<img src="https://corporate.na1.echosign.com/images/emailNextGen/checkmarkCircle@2x.png"
                     style="padding-bottom: 28px; height: 50px; width: 50px; display: block; margin-left: auto; margin-right: auto;"
                     alt="" />
                 </center>
 
-                <p style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #ffffff; line-height: 1px;
+									<p style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #ffffff; line-height: 1px;
                 max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-                  You&rsquo;re all done. Attached is the final agreement for your reference.
-                </p>
+										You&rsquo;re all done. Attached is the final agreement for your reference.
+									</p>
 
-                <p class="bodyHeading"
-                  style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
-                  You're done signing <br /> <b>$!agreement_titlecasename</b>
-                </p>
+									<p class="bodyHeading"
+										style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
+										You're done signing <br /> <b>$!agreement_titlecasename</b>
+									</p>
 
-                <center>
+									#if ($!signed_and_filed_show_viewacopy_link == "true")
+									<center>
 
-                  <!-- CALL TO ACTION MSO -->
-                  <!--[if mso]>
+										<!-- CALL TO ACTION MSO -->
+										<!--[if mso]>
                     <table align="center" width="200" border="0" cellpadding="0" cellspacing="0" style="width:200px;">
                       <tr>
                         <td height="28px">
@@ -188,104 +182,118 @@
                     </table>
                   <![endif]-->
 
-                  <!--[if !mso]> <!---->
-                  <!-- END CALL TO ACTION MSO -->
+										<!--[if !mso]> <!---->
+										<!-- END CALL TO ACTION MSO -->
 
-                  <!-- CALL TO ACTION NON MSO -->
-                  <div style="text-align: center; margin: 31px 0;">
-                    <a target="_blank" href="$!signed_and_filed_agr_link"
-                      style="background-color: #1473e6; border-color: #1473e6; color: #ffffff!important; border-width: 2px;border-style: solid; border-radius: 20px; display: inline-block; height: auto; min-width: 72px; padding: 8px 14px; font-size: 15px; font-weight: 700 !important; text-decoration: none; margin: 0; justify-content: center;">
-                      Open agreement
-                    </a>
-                  </div>
-                  <!-- <![endif]-->
-                  <!-- END CALL TO ACTION NON MSO -->
-                </center>
+										<!-- CALL TO ACTION NON MSO -->
+										<div style="text-align: center; margin: 31px 0;">
+											<a target="_blank" href="$!signed_and_filed_agr_link"
+												style="background-color: #1473e6; border-color: #1473e6; color: #ffffff!important; border-width: 2px;border-style: solid; border-radius: 20px; display: inline-block; height: auto; min-width: 72px; padding: 8px 14px; font-size: 15px; font-weight: 700 !important; text-decoration: none; margin: 0; justify-content: left;">
+												Open agreement
+											</a>
+										</div>
+										<!-- <![endif]-->
+										<!-- END CALL TO ACTION NON MSO -->
+									</center>
+									#end
 
-                <hr class="separator" />
+									<hr class="separator" />
 
-                <table border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td height="28px">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p style="font-size: 17px;">
-                        Attached is the final agreement for your reference.
-                        <span style="font-size: 17px;">
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td height="28px">
+												&nbsp;
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+										#if ($!signed_and_filed_user_gets_attachments == "true")
+                    <p style="font-size: 17px;">
+                      Attached is a final copy of <b>$!agreement_titlecasename</b>.
+                    </p>
+                  	#end
+												#if ($!signed_and_filed_show_viewacopy_link == "true")
+													<span style="font-size: 17px;">
                           You can also <a target="_blank" href="$!signed_and_filed_agr_link"><b>open it online</b></a>
                           to review its activity history.
                         </span>
-                      </p>
-                      <p style="font-size: 17px;">
-                        #* If non-zero retention period, include message for document retention *#
-                        #if ($!retention_period != "0")
-                        #if ($!signed_and_filed_can_view_agreement == "true" && $!signed_and_filed_show_viewacopy_link
-                        == "true")
-                        #if ($!signed_and_filed_demarketEmails == "true")
-                        <p>The agreement is fully executed. The sender of this agreement has control over the
-                          retention period for this agreement which determines the amount of time it will be available
-                          for download from Adobe Acrobat Sign. Adobe recommends that you save a local copy of this
-                          fully-executed agreement for your records.
-                          #end
-                          #if ($!retention_period != "-1")
-                          <p>Document will be available for $!retention_period days</p>
-                          #end
-                          #end
-                          #end
-                        </p>
-                        <br />
+
+												#end
+												<p style="font-size: 17px;">
+													#* If non-zero retention period, include message for document
+													retention *#
+													#if ($!retention_period != "0")
+													#if ($!signed_and_filed_can_view_agreement == "true" &&
+													$!signed_and_filed_show_viewacopy_link
+													== "true")
+													#if ($!signed_and_filed_demarketEmails == "true")
+													<p>The agreement is fully executed. The sender of this agreement has
+														control over the
+														retention period for this agreement which determines the amount
+														of time it will be available
+														for download from Adobe Acrobat Sign. Adobe recommends that you save a
+														local copy of this
+														fully-executed agreement for your records.
+														#end
+														#if ($!retention_period != "-1")
+														<p>Document will be available for $!retention_period days</p>
+														#end
+														#end
+														#end
+													</p>
+													<br />
                     </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <table style="font-size: 12px; color: #4b4b4b">
-            <tr>
-              <td>
-                <center>
-                  <table border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td>
-                        <img
+										</tr>
+									</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table style="font-size: 12px; color: #4b4b4b">
+						<tr>
+							<td>
+								<center>
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td>
+												<img
                           src="https://corporate.na1.echosign.com/images/emailNextGen/email-powered-by-adobe-sign-logo.1@2x.png"
                           width="82" hspace="2" alt="Powered by Adobe Acrobat Sign">
                       </td>
-                    </tr>
-                    <tr>
-                      <td height="16px">
-                        &nbsp;
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-                <p style="margin-bottom: 18px">Need your own documents signed? Adobe Acrobat Sign can help save you time.
-                  <a target="_blank" href="https://www.adobe.com/go/signeremail-trial-nov2019"><b>Learn more</b></a>.
-                </p>
-                <p style="margin-bottom: 18px">
-                  To ensure that you continue receiving our emails, please add adobesign@adobesign.com to your address
-                  book or safe list.
-                </p>
-                <p style="margin-bottom: 18px">&copy; 2022 Adobe. All rights reserved.</p>
-                <img
+										</tr>
+										<tr>
+											<td height="16px">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</center>
+								<p style="margin-bottom: 18px">Need your own documents signed? Adobe Acrobat Sign can help save
+									you time.
+									<a target="_blank"
+										href="https://www.adobe.com/go/signeremail-trial-nov2019"><b>Learn more</b></a>.
+								</p>
+								<p style="margin-bottom: 18px">
+									To ensure that you continue receiving our emails, please add adobesign@adobesign.com
+									to your address
+									book or safe list.
+								</p>
+								<p style="margin-bottom: 18px">&copy; 2021 Adobe. All rights reserved.</p>
+								<img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
                   style="visibility: hidden; mso-hide: all; color: #ffffff; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;"
                   alt="" title="" />
               </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </center>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</center>
 </body>
 
 </html>
-
