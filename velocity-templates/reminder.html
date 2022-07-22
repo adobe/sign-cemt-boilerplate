@@ -111,15 +111,15 @@
                               <td>
                                 #* Use header image if provided. Otherwise, use logo *#
                                 #if ($!header_image != "null")
-                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
+                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="Header image" />
                                 #else
                                 <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
-                                  height="60" hspace="2" alt="" />
+                                  height="60" hspace="2" alt="Header image" />
                                 #end
 
                                 #* Request blank.gif only if the tracking ID is defined and non-empty. *#
                                 #if ($!secure_tracking_id != "null")
-                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
+                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank header image" width="1"
                                   height="1" border="0" title="" />
                                 #end
                               </td>
@@ -315,7 +315,7 @@
       <p>This reminder will be re-sent every week until completed.</p><br>
     #end
     #if ($!reminder_frequency != "ONCE")
-      <p><a href="$!stop_link">Click here</a> if you wish to stop receiving reminders about this agreement.</p>
+      <p><a style="color: #1373E6" href="$!stop_link">Click here</a> if you wish to stop receiving reminders about this agreement.</p>
     #end
     <br/>
     <br/>
@@ -325,9 +325,9 @@
         #if ($!document_retention_days != 0)
           <p>
               #if ($!demarket_emails)
-                <a href="$!agrlink"><b>Click here</b></a> to view this document online.
+                <a style="color: #1373E6" href="$!agrlink"><b>Click here</b></a> to view this document online.
               #else
-                <a href="$!agrlink"><b>Click here</b></a> to view this document online in your Adobe Acrobat Sign account.
+                <a style="color: #1373E6" href="$!agrlink"><b>Click here</b></a> to view this document online in your Adobe Acrobat Sign account.
               #end
               #if ($!document_retention_days != -1)
                 (Document will be available for $!document_retention_days days)
@@ -382,11 +382,11 @@
     #elseif ($!subtype == "reminder_not_next_to_esign")
       <br/>
       <br/>
-      <a href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
+      <a style="color: #1373E6" href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
     #elseif ($!subtype == "reminder_not_next_to_sign")
       <br/>
       <br/>
-      <a href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
+      <a style="color: #1373E6" href="$!agrlink"><b>Click here</b> to login to Adobe Acrobat Sign and view this document.</a>
     #end
                     </td>
                   </tr>
@@ -439,7 +439,7 @@
                 <img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
                   style="visibility: hidden; mso-hide: all; color: #ffffff;
-                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="" title="" />
+                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="Footer image" title="" />
               </td>
             </tr>
           </table>
