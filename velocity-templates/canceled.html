@@ -111,15 +111,15 @@
                               <td>
                                 #* Use header image if provided. Otherwise, use logo *#
                                 #if ($!header_image != "null")
-                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
+                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="Header image" />
                                 #else
                                 <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
-                                  height="60" hspace="2" alt="" />
+                                  height="60" hspace="2" alt="Header image" />
                                 #end
 
                                 #* Request blank.gif only if the tracking ID is defined and non-empty. *#
                                 #if ($!secure_tracking_id != "null")
-                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
+                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank header image" width="1"
                                   height="1" border="0" title="" />
                                 #end
                               </td>
@@ -337,7 +337,7 @@
                 <img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
                   style="visibility: hidden; mso-hide: all; color: #ffffff;
-                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="" title="" />
+                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="Footer image" title="" />
               </td>
             </tr>
           </table>
