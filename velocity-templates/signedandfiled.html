@@ -101,17 +101,17 @@
 															<td>
 																#* Use header image if provided. Otherwise, use logo *#
 																#if ($!header_image != "null")
-																<img src="../$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
+																<img src="../$!image_url_prefix/cobrand_logo/$!header_image" alt="Header image" />
                                 #else
 																<img src="../$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
-                                  height="60" hspace="2" alt="" />
+                                  height="60" hspace="2" alt="Header image" />
                                 #end
 
 
 
                                 #* Request blank.gif only if the tracking ID is defined and non-empty. *#
                                 #if ($!secure_tracking_id != "null")
-																<img src="../$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
+																<img src="../$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank header image" width="1"
                                   height="1" border="0" title="" />
                                 #end
                               </td>
@@ -141,7 +141,7 @@
 								<center>
 									<img src="https://corporate.na1.echosign.com/images/emailNextGen/checkmarkCircle@2x.png"
                     style="padding-bottom: 28px; height: 50px; width: 50px; display: block; margin-left: auto; margin-right: auto;"
-                    alt="" />
+                    alt="Completed checkmark" />
                 </center>
 
 									<p style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #ffffff; line-height: 1px;
@@ -215,7 +215,7 @@
                   	#end
 												#if ($!signed_and_filed_show_viewacopy_link == "true")
 													<span style="font-size: 17px;">
-                          You can also <a target="_blank" href="$!signed_and_filed_agr_link"><b>open it online</b></a>
+                          You can also <a style="color: #1373E6" target="_blank" href="$!signed_and_filed_agr_link"><b>open it online</b></a>
                           to review its activity history.
                         </span>
 
@@ -274,7 +274,7 @@
 								</center>
 								<p style="margin-bottom: 18px">Need your own documents signed? Adobe Acrobat Sign can help save
 									you time.
-									<a target="_blank"
+									<a style="color: #1373E6" target="_blank"
 										href="https://www.adobe.com/go/signeremail-trial-nov2019"><b>Learn more</b></a>.
 								</p>
 								<p style="margin-bottom: 18px">
@@ -286,7 +286,7 @@
 								<img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
                   style="visibility: hidden; mso-hide: all; color: #ffffff; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;"
-                  alt="" title="" />
+                  alt="Footer image" title="" />
               </td>
 						</tr>
 					</table>
