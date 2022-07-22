@@ -111,16 +111,16 @@
                               <td>
                                 #* Use header image if provided. Otherwise, use logo *#
                                 #if ($!header_image != "null")
-                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="" />
+                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="Header Image" />
                                 #else
                                 <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
-                                  height="60" hspace="2" alt="" />
+                                  height="60" hspace="2" alt="Header Image" />
                                 #end
 
                                 #* Request blank.gif only if the tracking ID is defined and non-empty. *#
                                 #if ($!secure_tracking_id != "null")
-                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="" width="1"
-                                  height="1" border="0" title="" />
+                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank Header Image" width="1"
+                                  height="1" border="0" title="Blank Header Image" />
                                 #end
                               </td>
                             </tr>
@@ -135,7 +135,7 @@
                   width="39" align="right" valign="top">
                   <img style="background-color:#ff0000;display:inline-block"
                     src="https://corporate.na1.echosign.com/images/emailNextGen/email-adobe-tag-classic@2x.png"
-                    border="0" alt="Adobe" width="39" height="64">
+                    border="0" alt="Adobe" width="39" height="64" alt="Adobe tag">
                 </td>
                 <td style="width:16px;">&nbsp;</td>
               </tr>
@@ -147,11 +147,6 @@
           <table id="main" cellpadding="20" cellspacing="0" style="width: 100%">
             <tr>
               <td>
-                <center>
-                  <img src="https://corporate.na1.echosign.com/images/emailNextGen/checkmarkCircle@2x.png"
-                    style="padding-bottom: 28px; height: 50px; width: 50px; display: block; margin-left: auto; margin-right: auto;"
-                    alt="" />
-                </center>
 
                 #if ($!please_sign_user_can_sign == "false" && !$!participation_role.contains("DELEGATE"))
                 #***************** Handling for the case when an email is sent to user who cannot sign
@@ -196,7 +191,7 @@
 
                 #set( $rolesStrings = {"SIGNER" : "signer" , "APPROVER" : "approver", "FORM_FILLER" : "form filler",
                 "ACCEPTOR" : "acceptor", "CERTIFIED_RECIPIENT" : "certified recipient"} )
-                <p><b>Don't forward this email:</b> If you don't want to sign, you can <a target="_blank"
+                <p><b>Don't forward this email:</b> If you don't want to sign, you can <a style="color: #1373E6" target="_blank"
                     href="$!please_sign_resend_link">delegate</a>
                   to an authorized $rolesStrings.get($!participation_role).
                 </p>
@@ -399,7 +394,7 @@
                         delegation"} )
                         <p>If you need to delegate this document to an authorized party
                           $rolesStrings.get($!participation_role), <b>please do not forward this email</b>. Instead, <a
-                            href="$!please_sign_resend_link">click here to delegate</a>.</p>
+                            href="$!please_sign_resend_link" style="color: #1373E6">click here to delegate</a>.</p>
                         #end
                       </p>
                     </td>
@@ -450,7 +445,7 @@
                 <img
                   src="https://corporate.na1.echosign.com/track/CBFCIBAA3AAABLblqZhCkvl99gGBPUxdNWTxfJ70r2P9sYKP48F4DwNDG_JW_bKVvimmNuu2g38XRIFOfnk4*/blank.gif"
                   style="visibility: hidden; mso-hide: all; color: #ffffff;
-                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="" title="" />
+                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; border: 0;" alt="Bottom footer" title="" />
               </td>
             </tr>
           </table>
