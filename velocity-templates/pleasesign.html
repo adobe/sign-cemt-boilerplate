@@ -360,19 +360,100 @@
                   </tr>
                   <tr>
                     <td>
-                      #if ($!all_get_signedandfiledemail == "true")
-                      #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill",
-                      "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt", "DELEGATE_TO_SIGNER" :
-                      "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval
-                      and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee
-                      fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts",
-                      "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee
-                      acknowledges receipt"} )
-                      <p>
-                        After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, all parties
-                        will receive a final PDF copy by email.
-                      </p>
-                      #end
+                #***************** Recipient set message *****************#
+    #if ($!please_sign_sibling_nameoremails_size != "0" && $!please_sign_sibling_nameoremails_size != "1")
+        #set( $rolesStrings = {"SIGNER" : "to sign this document" , "APPROVER" : "to approve this document", "FORM_FILLER" : "to fill this document", "ACCEPTOR" : "to accept this document", "CERTIFIED_RECIPIENT" : "to acknowledge the receipt of this document", "DELEGATE_TO_SIGNER" : "to delegate this document for signature", "DELEGATE_TO_APPROVER" : "to delegate this document for approval", "DELEGATE_TO_FORM_FILLER" : "to delegate this document for filling", "DELEGATE_TO_ACCEPTOR" : "to delegate this document for acceptance", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "to delegate the acknowledgement of receipt of this document"} )
+                                <p>
+                                    You are one of a group of people out of which only one needs $rolesStrings.get($!participation_role). The group includes $!please_sign_sibling_nameoremails.
+                                </p>
+    #end
+
+                                #***************** Messaging for "After you sign" *****************#
+    #if ($!disable_aftersign == "false")
+                                <p>
+                                    #***************** When there are more signers to sign *****************#
+        #if ($!following_signers_set_size != "0")
+                                        #***************** Sequential workflow *****************#
+            #if ($!please_sign_agreement_sequential == "true")
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt of", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt of"} )
+                                    After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, the agreement will be sent to
+                                       #foreach ($signer in $!following_signers_set)
+                                    #* If on the last item in a list, insert element and break. *#
+                                    #if (!$velocityHasNext)
+                                        #if ($velocityCount == 1)
+                                            $signer.
+                                        #else
+                                          and $signer.
+                                        #end
+                                        #break
+                                    #end
+                                    #* No traversal beyond 4 elements *#
+                                    #set($moreValue = $following_signers_set.size() - 4)
+                                    #if ($velocityCount == 4 && $moreValue gt 0)
+                                        $signer and $moreValue more.
+                                        #break
+                                    #end
+                                    #* If on second last item, do not add "," after element *#
+                                    #if ($velocityHasNext && $velocityCount != $following_signers_set.size() - 1)
+                                        $signer,
+                                    #else
+                                        $signer
+                                    #end
+                                #end
+                                #* when SEND_SIGNED_AND_FILED_EMAIL setting is true, add appropriate message *#
+                                #if ($!all_get_signedandfiledemail == "true")
+                                    #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                                    #if ($!all_get_attachments == "true")
+                                      Then, all parties will receive a final PDF copy by email.
+                                    #else
+                                      Then, all parties will be notified via email.
+                                    #end
+                                #end
+                            #else
+                                #***************** Parallel workflow *****************#
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt"} )
+                                    #if ($!all_get_signedandfiledemail == "true")
+                #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                #if ($!all_get_attachments == "true")
+                  After you $rolesStrings.get($!participation_role), and
+                    #foreach ($!index in $!following_signers_set.keySet())
+                        #set( $moreValue = $!following_signers_set.size() - 4 )
+                        #* No traversal beyond 4 elements *#
+                        #if ($!index == "4") and $moreValue more #break #end
+                        #* If on the last item in a list, insert element and break. *#
+                        #if (($!following_signers_set.size() - 1) == $!index)
+                            #if ($!index == "0")
+                                $!following_signers_set.get($!index)
+                            #else
+                              and $!following_signers_set.get($!index)
+                            #end
+                            #break
+                        #end
+                        #* If on second last item, do not add "," after element *#
+                        #if (($!following_signers_set.size() - 2) != $!index)
+                            $!following_signers_set.get($!index),
+                        #else
+                            $!following_signers_set.get($!index)
+                        #end
+                    #end complete <b>$!agreement_titlecasename</b>, all parties will receive a final PDF copy by email.
+                #end
+            #end
+        #end
+    #else
+        #***************** No more signers to sign *****************#
+        #* when SEND_SIGNED_AND_FILED_EMAIL setting is true, add appropriate message *#
+        #if ($!all_get_signedandfiledemail == "true")
+                #set( $rolesStrings = {"SIGNER" : "sign" , "APPROVER" : "approve", "FORM_FILLER" : "fill", "ACCEPTOR" : "accept", "CERTIFIED_RECIPIENT" : "acknowledge receipt of", "DELEGATE_TO_SIGNER" : "delegate for signature and the delegatee signs", "DELEGATE_TO_APPROVER" : "delegate for approval and the delegatee approves", "DELEGATE_TO_FORM_FILLER" : "delegate for filling and the delegatee fills", "DELEGATE_TO_ACCEPTOR" : "delegate for acceptance and the delegatee accepts", "DELEGATE_TO_CERTIFIED_RECIPIENT" : "delegate for receipt acknowledgement and the delegatee acknowledges receipt of"} )
+                                        #* Add appropriate message based on SEND_EMAIL_ATTACHMENTS setting  *#
+                #if ($!all_get_attachments == "true")
+                  After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, all parties will receive a final PDF copy by email.
+                #else
+                  After you $rolesStrings.get($!participation_role) <b>$!agreement_titlecasename</b>, all parties will be notified.
+                #end
+            #end
+        #end
+    </p>
+  #end
                     </td>
                   </tr>
                 </table>
