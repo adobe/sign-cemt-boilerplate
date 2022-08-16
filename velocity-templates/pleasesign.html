@@ -109,19 +109,19 @@
                             <tr>
                               <td style="width:16px;">&nbsp;</td>
                               <td>
-                                #* Use header image if provided. Otherwise, use logo *#
-                                #if ($!header_image != "null")
-                                <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="Header Image" />
-                                #else
-                                <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353"
-                                  height="60" hspace="2" alt="Header Image" />
-                                #end
+                            #* Use header image if provided. Otherwise, use logo and email-strip-gray.png *#
+#if ($!header_image != "null")
+                            <img src="$!image_url_prefix/cobrand_logo/$!header_image" alt="Main Header Image"/>
+#else
+                            <img src="$!image_url_prefix/cobrand_logo/$!settings_logo_filename" width="353" height="60" hspace="2" alt="Secondary Header Image"/>
+                            <br class="clear"/>
+                            <img src="$!image_url_prefix/images/email-stripe-gray.png" alt="Send. Sign. Done." width="605" height="32" border="0" title="Adobe Sign"/>
+#end
 
-                                #* Request blank.gif only if the tracking ID is defined and non-empty. *#
-                                #if ($!secure_tracking_id != "null")
-                                <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank Header Image" width="1"
-                                  height="1" border="0" title="Blank Header Image" />
-                                #end
+                            #* Request blank.gif only if the tracking ID is defined and non-empty. *#
+#if ($!secure_tracking_id != "null")
+                            <img src="$!image_url_prefix/track/$!secure_tracking_id/blank.gif" alt="Blank tracking ID" width="1" height="1" border="0" title=""/>
+#end
                               </td>
                             </tr>
                           </table>
