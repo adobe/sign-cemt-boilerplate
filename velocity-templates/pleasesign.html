@@ -454,9 +454,19 @@
         #end
     </p>
   #end
+                     
                     </td>
                   </tr>
                 </table>
+#***************** Documents to be attached *****************#
+    #if ($!please_sign_attached_documents_size != "0")
+                                <p>As you prepare to sign this form, please note that the document asks for the following to be attached:</p>
+                                <ul style="padding: 0 0 0 15px">
+                          #foreach( $doc in $!please_sign_attached_documents )
+                                    <li>$doc</li>
+        #end
+                                </ul>
+    #end
 
                 <table border="0" cellpadding="0" cellspacing="0">
                   <tr>
