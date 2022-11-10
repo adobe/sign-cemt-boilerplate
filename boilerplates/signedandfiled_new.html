@@ -193,10 +193,13 @@
                       <p>
                         <p style="font-size: 17px;">
                           Attached is the final agreement for your reference.
-                          <span style="font-size: 17px;">
-                            You can also <a target="_blank" href=""><b>open it online</b></a> to review its activity
-                            history.
-                          </span>
+#if ($!signed_and_filed_show_viewacopy_link == "true")
+													<span style="font-size: 17px;">
+                          You can also <a style="color: #1373E6" target="_blank" href="$!signed_and_filed_agr_link"><b>open it online</b></a>
+                          to review its activity history.
+                        </span>
+
+												#end
                         </p>
                         <br />
                       </p>
@@ -230,7 +233,7 @@
                   </table>
                 </center>
                 <p style="margin-bottom: 18px">Need your own documents signed? Adobe Acrobat Sign can help save you time.
-                  <a target="_blank" href="https://www.adobe.com/go/signeremail-trial-nov2019"><b>Learn more</b></a>.
+                  <a target="_blank" href="https://www.adobe.com/go/signeremail-trial-nov2019" style="color: #1373E6"><b>Learn more</b></a>.
                 </p>
                 <p style="margin-bottom: 18px">
                   To ensure that you continue receiving our emails, please add adobesign@adobesign.com to your address
