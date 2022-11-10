@@ -142,15 +142,32 @@
                     alt="Completed checkmark" />
                 </center>
 
+                                    #if ($!is_observer)
+
 									<p style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #ffffff; line-height: 1px;
                 max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-										You&rsquo;re all done. Attached is the final agreement for your reference.
+										Completed: You're copied on $!agreement_titlecasename
 									</p>
+
+
+                                    <p class="bodyHeading"
+                                    style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
+                                    $!originator_fullnameoremail cc'd you on <br /> <b>$!agreement_titlecasename</b>
+                                    </p>
+
+                                    #else
+
+                                    <p style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #ffffff; line-height: 1px;
+                                    max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+                                     You&rsquo;re all done. Attached is the final agreement for your reference.
+                                    </p>
 
 									<p class="bodyHeading"
 										style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
 										You're done signing <br /> <b>$!agreement_titlecasename</b>
 									</p>
+
+                                    #end
 
 									#if ($!signed_and_filed_show_viewacopy_link == "true")
 									<center>
@@ -211,6 +228,7 @@
                       Attached is a final copy of <b>$!agreement_titlecasename</b>.
                     </p>
                   	#end
+                    <br>
 												#if ($!signed_and_filed_show_viewacopy_link == "true")
 													<span style="font-size: 17px;">
                           You can also <a style="color: #1373E6" target="_blank" href="$!signed_and_filed_agr_link"><b>open it online</b></a>
