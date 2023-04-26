@@ -214,17 +214,35 @@
                   $!please_sign_delegator_fullnameoremail has forwarded <b>$!agreement_titlecasename</b> to you
                   $rolesStrings.get($!participation_role).
                 </p>
+                
+                        #if ($!please_sign_is_written_signer == "true")
+                                    <p>
+                                        You will fill out information electronically, then download and print the agreement, sign it using a pen, and upload the signed document back to Adobe Sign.
+                                    </p>
+                       #end
+                
+                
 
 
                 #else
 
                 #***************** Case when participant is not a delegatee *****************#
+                
+                #if ($!please_sign_is_written_signer == "true")
+                <p class="bodyHeading"
+                  style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
+                  $!origintaor_fullnameoremail sent you an agreement to print, sign, and upload:<br> $!agreement_titlecasename
+                </p>
+
+                #else
 
 
                 <p class="bodyHeading"
                   style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
                   <b>$!originator_fullnameoremail</b> requests your signature on <br /> <b>$!agreement_titlecasename</b>
                 </p>
+                
+                #end
 
                 #if ($!please_sign_expiration_date != "null")
                 <table border="0" cellpadding="0" cellspacing="0">
