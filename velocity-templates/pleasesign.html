@@ -231,7 +231,7 @@
                 #if ($!please_sign_is_written_signer == "true")
                 <p class="bodyHeading"
                   style="margin: 0; font-size: 22px; color: #454545; text-align: center; word-break:break-word">
-                  $!origintaor_fullnameoremail sent you an agreement to print, sign, and upload:<br> $!agreement_titlecasename
+                  $!originator_fullnameandcompanyoremail sent you an agreement to print, sign, and upload:<br> $!agreement_titlecasename
                 </p>
 
                 #else
@@ -352,7 +352,8 @@
 
                           <p
                             style="text-transform: uppercase; font-size: 13px; letter-spacing: 0.78px; color: #2C2C2C; word-break:break-word">
-                            <b>$!originator_fullnameoremail</b>
+                            <b>$!originator_fullnameoremail</b><br>
+                               $!reply_to@$!reply_to_domain
                           </p>
 
                           #end
@@ -530,9 +531,11 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <img
-                          src="https://corporate.na1.echosign.com/images/emailNextGen/email-powered-by-adobe-sign-logo.1@2x.png"
-                          width="82" hspace="2" alt="Powered by Adobe Acrobat Sign">
+              #if ($!footer_image != "null")
+              <img src="$!image_url_prefix/cobrand_logo/$!footer_image" alt="Main Footer Image"/>
+              #else
+              <img src="https://corporate.na1.echosign.com/images/emailNextGen/email-powered-by-adobe-sign-logo.1@2x.png" width="82" hspace="2" alt="Powered by Adobe Acrobat Sign">                 
+              #end
                       </td>
                     </tr>
                     <tr>
