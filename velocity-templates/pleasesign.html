@@ -510,6 +510,11 @@
                     </td>
                   </tr>
                 </table>
+          
+                #if ($!settings_email_allow_individual_signature == “true”)
+                $!settings_email_user_signature
+                #end
+                $!settings_email_account_signature
 
 
                 #end
